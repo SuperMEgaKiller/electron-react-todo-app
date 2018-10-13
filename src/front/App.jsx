@@ -27,8 +27,6 @@ class App extends Component {
   }
   componentDidMount(){
     // loading data from file before app is render
-    // ipcRenderer.send("loading", "go");
-    
     ipcRenderer.on("sending", (event, arg) => {
       let arg_sorted = arg.tasks.sort((a,b) => this.dateSord(a.date, b.date));
       this.setState({
@@ -82,15 +80,20 @@ class App extends Component {
   }
 
   render() {
-    // generating based on list of elements in state 
     let items_list = this.state.items.map((val, i) => {
-      // let task_done = check is done
-      return  (<li className="list-group-item d-flex justify-content-between align-items-center" key={i}>
+      return  (
+              <li className="list-group-item d-flex justify-content-between align-items-center" key={i}>
                 {val.task} 
+
                 <span className="badge badge-primary badge-pill">
                   {val.date.toString().slice(0, 10)}
                 </span>
-                <button onClick={(e) => this.buttonHandle(e, i)} type="button" className="btn btn-outline-danger">X</button>
+
+                <button 
+                onClick={(e) => this.buttonHandle(e, i)} 
+                type="button" 
+                className="btn btn-outline-danger">X</button>
+                
               </li>);
     });
 
@@ -102,8 +105,16 @@ class App extends Component {
 
         <div className="navbar navbar-expand-lg">
           <form className="form-inline my-2 my-lg-0" onSubmit={(e) => this.handleSubmit(e)}>
-            <input className="form-control mr-sm-2" placeholder="What needs to be done?" value={this.state.item.task} name="item" type="text" autoFocus={true} onChange={(e) => this.handleChange(e)} />
-            {/* <button type="submit" className="btn btn-secondary my-2 my-sm-0">Add</button> */}
+            
+            <input 
+            className="form-control mr-sm-2" 
+            placeholder="What needs to be done?" 
+            value={this.state.item.task} 
+            name="item" 
+            type="text" 
+            autoFocus={true}
+            onChange={(e) => this.handleChange(e)} />
+
           </form>
         </div>
 
