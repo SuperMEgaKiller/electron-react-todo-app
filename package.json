@@ -25,5 +25,5 @@
     "foreman": "^3.0.1"
   },
   "homepage": "./",
-  "license": "ISC"
+  "license": "MIT"
 }
