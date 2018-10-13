@@ -8,6 +8,7 @@ Example of simple Electron-React application.
 
 
 `$ npm run dev` - start app
+
 configuration Electron for React - https://medium.freecodecamp.org/building-an-electron-application-with-create-react-app-97945861647c
 
 ## License
