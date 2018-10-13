@@ -24,5 +24,6 @@
     "electron-packager": "^12.1.2",
     "foreman": "^3.0.1"
   },
-  "homepage": "./"
+  "homepage": "./",
+  "license": "ISC"
 }
