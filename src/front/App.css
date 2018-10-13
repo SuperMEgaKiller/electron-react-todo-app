@@ -1,0 +1,35 @@
+.container{
+  text-align: center;
+}
+.list-group{
+  width: 95%;
+}
+.badge{
+  position: relative;
+  float: right;
+}
+
+.list-group-item{
+  margin: 10px;
+  background-color: rgb(255, 255, 255);
+
+  /* shadow */
+  -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+}
+.form-control{
+  position: relative;
+  min-width: 250px;
+  margin: 0 auto;
+  display: inline-block;
+}
+/* on mouse enter make active */
+.list-group-item:hover{
+  background-color: #a4b1d3;
+}
+
+.btn{
+  min-width: 40px;
+  min-height: 40px;
+}
