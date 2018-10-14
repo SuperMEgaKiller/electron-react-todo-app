@@ -1,31 +1,35 @@
-const electron = require('electron');
-const path = require('path');
-const fs = require('fs');
+import electron from "electron";
+import fs from "fs";
+import path from "path";
+import {ITask, ITasks} from "../interfaces";
 
-class Storage{
-    constructor(file) {
+export default class Storage{
+    Path: string;
+    
+    constructor(file: string) {
         const userDataPath = (electron.app || electron.remote.app).getPath("userData");
         this.Path = path.join(userDataPath, file);
-        // console.log(this.Path);
+        console.log(this.Path);
         const userDataFile = fs.openSync(this.Path, "a+");
         fs.closeSync(userDataFile);
     }
  
-    parseFile(){
+    parseFile(): ITasks{
         try {
-            return JSON.parse(fs.readFileSync(this.Path));
+            let data: ITasks = JSON.parse(fs.readFileSync(this.Path, "utf-8")).tasks;
+            return data;
         } catch (error) {
             return;
         }
     }
-    append(doc){
+    append(doc: ITask){
         // doc = {
         // task: ....
         // done: ...
         // time: ...
         //} 
         try {
-            fs.readFile(this.Path, (err, data) => {
+            fs.readFile(this.Path, "utf-8", (err: Error, data: string) => {
                 if(err) throw err;
                 // if file is empty
                 if(data.length === 0){
@@ -51,10 +55,10 @@ class Storage{
         }
     }
 
-    update(docs){
+    update(docs: ITasks){
         // as input take docs after filtering them
         try {
-            fs.readFile(this.Path, (err, data) => {
+            fs.readFile(this.Path, "utf-8", (err: Error, data: string) => {
                 if(err) throw err;
         
                 let json = JSON.parse(data);
@@ -70,6 +74,3 @@ class Storage{
         }
     }
 }
-
-
-module.exports = Storage;

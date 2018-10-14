@@ -98,7 +98,7 @@ class App extends Component {
     });
 
     return (
-      <div className="App">
+      <div className="container">
         <header>
           <h1 className="display-3">Electron-React App</h1>
         </header>

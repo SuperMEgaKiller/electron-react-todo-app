@@ -1,29 +1,35 @@
 {
   "name": "reactify-electron",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "bootstrap": "^4.1.3",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1",
-    "react-scripts": "1.1.5"
-  },
-  "main": "src/electron-starter.js",
+  "version": "1.0.0",
+  "main": "./dist/main.bundle.js",
+  "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "electron": "electron .",
-    "edev": "set ELECTRON_START_URL=https://localhost:3000 && electron .",
-    "dev": "nf start",
-    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron React App\""
+    "start": "electron ./dist/main.bundle.js",
+    "development": "rimraf dist && webpack --config ./webpack.dev.js --progress --colors",
+    "production": "rimraf dist && webpack --config ./webpack.prod.js --progress --colors",
+    "devs": "npm run development && npm run start"
   },
   "devDependencies": {
-    "electron": "^2.0.9",
-    "electron-packager": "^12.1.2",
-    "foreman": "^3.0.1"
+    "@types/react": "^16.4.16",
+    "@types/react-dom": "^16.0.9",
+    "css-loader": "^1.0.0",
+    "electron": "3.0.4",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^5.2.1",
+    "typescript": "^3.1.3",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
   },
-  "homepage": "./",
-  "license": "MIT"
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.4",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "repository": "https://github.com/SuperMEgaKiller/electron-react-todo-app.git",
+  "author": "OlehTrukhan <oleg.truhan789@gmail.com>"
 }
