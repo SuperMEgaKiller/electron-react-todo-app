@@ -1,5 +1,5 @@
 # Electron-React-ToDo-App ![CI status](https://img.shields.io/badge/build-passing-brightgreen.svg)
-Example of simple Electron-React application.
+Example of simple Electron-React application written in TypeSctript.
 
 ## Installation
 `$ npm install`
@@ -7,9 +7,9 @@ Example of simple Electron-React application.
 ## Usage
 
 
-`$ npm run dev` - start app
+`$ npm run devs` - start app
 
-configuration Electron for React - https://medium.freecodecamp.org/building-an-electron-application-with-create-react-app-97945861647c
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
