@@ -1,9 +1,6 @@
 .App{
     text-align: center;
 }
-.list-group{
-    width: 95%;
-}
 .badge{
     position: relative;
     float: right;
