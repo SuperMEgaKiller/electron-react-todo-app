@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "electron ./dist/main.bundle.js",
-    "development": "rimraf dist && webpack --config ./webpack.dev.js --progress --colors",
+    "development": "rimraf dist && webpack --config ./webpack.dev.ts --progress --colors",
     "production": "rimraf dist && webpack --config ./webpack.prod.js --progress --colors",
     "devs": "npm run development && npm run start"
   },
