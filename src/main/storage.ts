@@ -28,49 +28,38 @@ export default class Storage{
         // done: ...
         // time: ...
         //} 
-        try {
-            fs.readFile(this.Path, "utf-8", (err: Error, data: string) => {
-                if(err) throw err;
-                // if file is empty
-                if(data.length === 0){
-                    let template = {
-                        tasks: [doc]
-                    };
-                    fs.writeFile(this.Path, JSON.stringify(template, null, 2), (err) => {
-                        if(err) throw err;
-                    });
-                }
-                else {
-                    let json = JSON.parse(data);
-                    json.tasks.push(doc);
-                    fs.writeFile(this.Path, JSON.stringify(json, null, 2), (err) => {
-                        if(err) throw err;
-                    });
-                }
-            });
-            
-        } catch (error) {
-            console.log("Error append: ");
-            console.error(error);
-        }
+        fs.readFile(this.Path, "utf-8", (err: Error, data: string) => {
+            if(err) throw err;
+            // if file is empty
+            if(data.length === 0){
+                let template = {
+                    tasks: [doc]
+                };
+                fs.writeFile(this.Path, JSON.stringify(template, null, 2), (err) => {
+                    if(err) throw err;
+                });
+            }
+            else {
+                let json = JSON.parse(data);
+                json.tasks.push(doc);
+                fs.writeFile(this.Path, JSON.stringify(json, null, 2), (err) => {
+                    if(err) throw err;
+                });
+            }
+        });
     }
 
     update(docs: ITasks){
         // as input take docs after filtering them
-        try {
-            fs.readFile(this.Path, "utf-8", (err: Error, data: string) => {
+        fs.readFile(this.Path, "utf-8", (err: Error, data: string) => {
+            if(err) throw err;
+    
+            let json = JSON.parse(data);
+            json.tasks.length = 0;
+            json.tasks.push(...docs);
+            fs.writeFile(this.Path, JSON.stringify(json, null, 2), (err) => {
                 if(err) throw err;
-        
-                let json = JSON.parse(data);
-                json.tasks.length = 0;
-                json.tasks.push(...docs);
-                fs.writeFile(this.Path, JSON.stringify(json, null, 2), (err) => {
-                    if(err) throw err;
-                });
             });
-        } catch (error) {
-            console.log("Error : ");
-            console.error(error);
-        }
+        });
     }
 }
