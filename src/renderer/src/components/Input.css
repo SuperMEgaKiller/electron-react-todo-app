@@ -1,0 +1,6 @@
+.form-control{
+    position: relative;
+    min-width: 300px;
+    margin: 0 auto;
+    display: inline-block;
+}

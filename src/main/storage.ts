@@ -9,7 +9,6 @@ export default class Storage{
     constructor(file: string) {
         const userDataPath = (electron.app || electron.remote.app).getPath("userData");
         this.Path = path.join(userDataPath, file);
-        console.log(this.Path);
         const userDataFile = fs.openSync(this.Path, "a+");
         fs.closeSync(userDataFile);
     }

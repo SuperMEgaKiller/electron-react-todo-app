@@ -5,13 +5,14 @@
   "license": "MIT",
   "scripts": {
     "start": "electron ./dist/main.bundle.js",
-    "development": "rimraf dist && webpack --config ./webpack.dev.ts --progress --colors",
+    "development": "rimraf dist && webpack --config ./webpack.dev.js --progress --colors",
     "production": "rimraf dist && webpack --config ./webpack.prod.js --progress --colors",
     "devs": "npm run development && npm run start"
   },
   "devDependencies": {
     "@types/react": "^16.4.16",
     "@types/react-dom": "^16.0.9",
+    "@types/react-router-dom": "^4.3.1",
     "css-loader": "^1.0.0",
     "electron": "3.0.4",
     "file-loader": "^2.0.0",
@@ -28,7 +29,8 @@
     "jquery": "^3.3.1",
     "popper.js": "^1.14.4",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-router-dom": "^4.3.1"
   },
   "repository": "https://github.com/SuperMEgaKiller/electron-react-todo-app.git",
   "author": "OlehTrukhan <oleg.truhan789@gmail.com>"
